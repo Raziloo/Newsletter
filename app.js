@@ -2,11 +2,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const https = require("https");
 const mailchimp = require("@mailchimp/mailchimp_marketing");
+require('dotenv').config();
 
 const app = express();
 
 mailchimp.setConfig({
-    apiKey: "c8eed2c585f6742ed3b194d62b6b555f",
+    apiKey: process.env.API_KEY,
     server: "us11"
   });
 
@@ -55,6 +56,5 @@ app.listen(3000, function () {
     console.log("Server is running on port 3000.");
 });
 
-// api - c8eed2c585f6742ed3b194d62b6b555f-us11
 // audience id - ab7e448ca6
 
